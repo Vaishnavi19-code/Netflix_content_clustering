@@ -27,4 +27,6 @@ if user_input:
 
     st.write("Cluster:", cluster)
     st.write("Explanation:", explanation)
+    st.subheader("🎯 Cluster Result")
+    st.success(f"Cluster: {int(cluster[0])}")
 
