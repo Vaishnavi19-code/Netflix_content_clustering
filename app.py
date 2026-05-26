@@ -23,12 +23,12 @@ X = tfidf.transform(df['description'].fillna(""))
 # Cluster labels (customize based on your data)
 # -----------------------------
 cluster_names = {
-    0: "Drama",
+    0: "Action",
     1: "Comedy",
-    2: "Action",
-    3: "Romance",
-    4: "Crime",
-    5: "Documentary"
+    2: "Crime",
+    3: "Drama",
+    4: "Documentary",
+    5: "Romance/K-Drama"   
 }
 
 # -----------------------------
