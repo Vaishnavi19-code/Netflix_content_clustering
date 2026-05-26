@@ -41,7 +41,7 @@ if user_input:
 
 
 # load data
-df = pd.read_csv("netflix_titles.csv")
+df = pd.read_csv("NETFLIX MOVIES AND TV SHOWS CLUSTERING.csv")
 
 # transform full dataset
 X = tfidf.transform(df['description'])
