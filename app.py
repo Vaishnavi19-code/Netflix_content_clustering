@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 from groq import Groq
 from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd
 
 # Load model
 model = pickle.load(open("kmeans.pkl", "rb"))
@@ -39,7 +40,10 @@ if user_input:
     st.success(f"Cluster: {cluster_names.get(int(cluster[0]))}")
 
 
-# create full dataset vectors (once)
+# load data
+df = pd.read_csv("netflix_titles.csv")
+
+# transform full dataset
 X = tfidf.transform(df['description'])
 
 # user input
@@ -48,8 +52,9 @@ vec = tfidf.transform([user_input])
 # similarity
 similarity = cosine_similarity(vec, X)
 
-# top results
+# top 5
 top_idx = similarity.argsort()[0][-5:]
+
 st.write("🎬 Similar Content:")
 for i in top_idx:
     st.write(df.iloc[i]['title'])
