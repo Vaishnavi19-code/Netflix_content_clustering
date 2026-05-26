@@ -12,7 +12,7 @@ client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 def explain(text):
     response = client.chat.completions.create(
-        model="llama3-8b-8192",
+        model="llama3-70b-8192",
         messages=[
             {"role": "user", "content": f"Explain this Netflix content: {text}"}
         ]
