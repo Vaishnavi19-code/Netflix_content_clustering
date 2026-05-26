@@ -28,5 +28,3 @@ if user_input:
     st.write("Explanation:", explanation)
     st.subheader("🎯 Cluster Result")
     st.success(f"Cluster: {int(cluster[0])}")
-    st.write("Vector shape:", vec.shape)
-    st.write("Raw cluster output:", cluster)
