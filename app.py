@@ -1,11 +1,13 @@
 import streamlit as st
 import pickle
 from groq import Groq
+from sklearn.metrics.pairwise import cosine_similarity
+
 # Load model
 model = pickle.load(open("kmeans.pkl", "rb"))
 tfidf = pickle.load(open("tfidf.pkl", "rb"))
 
-st.title("Netflix Content Clustering")
+st.title("🎬 Netflix Content Clustering & Recommendation")
 
 user_input = st.text_input("Enter movie/show name or description")
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
@@ -27,4 +29,17 @@ if user_input:
 
     st.write("Explanation:", explanation)
     st.subheader("🎯 Cluster Result")
-    st.success(f"Cluster: {int(cluster[0])}")
+    cluster_names = {
+    0: "Drama",
+    1: "Comedy",
+    2: "Action",
+    3: "Romance",
+    4: "Crime",
+    5: "Documentary"}
+    st.success(f"Cluster: {cluster_names.get(int(cluster[0]))}")
+
+similarity = cosine_similarity(vec, X)
+top_idx = similarity.argsort()[0][-5:]
+st.write("🎬 Similar Content:")
+for i in top_idx:
+    st.write(df.iloc[i]['title'])
