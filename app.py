@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # -----------------------------
 # Load data
 # -----------------------------
-df = pd.read_csv("netflix_titles.csv")  # make sure this file is in repo
+df = pd.read_csv("NETFLIX MOVIES AND TV SHOWS CLUSTERING.csv")  # make sure this file is in repo
 
 # -----------------------------
 # Load models
