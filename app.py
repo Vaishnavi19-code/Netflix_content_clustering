@@ -38,7 +38,17 @@ if user_input:
     5: "Documentary"}
     st.success(f"Cluster: {cluster_names.get(int(cluster[0]))}")
 
+
+# create full dataset vectors (once)
+X = tfidf.transform(df['description'])
+
+# user input
+vec = tfidf.transform([user_input])
+
+# similarity
 similarity = cosine_similarity(vec, X)
+
+# top results
 top_idx = similarity.argsort()[0][-5:]
 st.write("🎬 Similar Content:")
 for i in top_idx:
