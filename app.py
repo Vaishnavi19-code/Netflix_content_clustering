@@ -78,7 +78,7 @@ if user_input:
         client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
         response = client.chat.completions.create(
-            model="llama3-70b-8192",  # updated working model
+            model="llama-3.1-8b-instant",  # updated working model
             messages=[
                 {"role": "user", "content": f"Explain this Netflix content: {user_input}"}
             ]
