@@ -58,6 +58,8 @@ if user_input:
     cluster_label = cluster_names.get(int(cluster), "Unknown")
 
     st.success(f"Cluster: {cluster_label}")
+    # ALSO SHOW GENRE (more reliable)
+    st.write("Genre:", df.iloc[top_idx[0]]['listed_in'])
 
     # -----------------------------
     # Similarity (recommendation)
