@@ -42,8 +42,8 @@ if user_input:
     # -----------------------------
     # Cluster prediction
     # -----------------------------
-    cluster = model.predict(vec)[0]
-    cluster_label = cluster_names.get(int(cluster), "Unknown")
+    # cluster = model.predict(vec)[0]
+    # cluster_label = cluster_names.get(int(cluster), "Unknown")
 
     # -----------------------------
     # Similarity (recommendation)
