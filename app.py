@@ -58,14 +58,15 @@ if user_input:
     cluster_label = cluster_names.get(int(cluster), "Unknown")
 
     st.success(f"Cluster: {cluster_label}")
-    # ALSO SHOW GENRE (more reliable)
-    st.write("Genre:", df.iloc[top_idx[0]]['listed_in'])
 
     # -----------------------------
     # Similarity (recommendation)
     # -----------------------------
     similarity = cosine_similarity(vec, X)
     top_idx = similarity.argsort()[0][-5:][::-1]
+
+    # ALSO SHOW GENRE (more reliable)
+    st.write("Genre:", df.iloc[top_idx[0]]['listed_in'])
 
     st.subheader("🎬 Similar Content:")
     for i in top_idx:
