@@ -19,6 +19,8 @@ tfidf = pickle.load(open("tfidf.pkl", "rb"))
 # -----------------------------
 X = tfidf.transform(df['description'].fillna(""))
 
+
+
 # -----------------------------
 # Streamlit UI
 # -----------------------------
@@ -42,8 +44,8 @@ if user_input:
     # -----------------------------
     # Cluster prediction
     # -----------------------------
-    # cluster = model.predict(vec)[0]
-    # cluster_label = cluster_names.get(int(cluster), "Unknown")
+    cluster = model.predict(vec)[0]
+    cluster_label = cluster_names.get(int(cluster), "Unknown")
 
     # -----------------------------
     # Similarity (recommendation)
@@ -52,7 +54,7 @@ if user_input:
     top_idx = similarity.argsort()[0][-5:][::-1]
 
     # ALSO SHOW GENRE (more reliable)
-    st.success("Genre:", df.iloc[top_idx[0]]['listed_in'])
+    st.success(f"Genre: {df.iloc[top_idx[0]]['listed_in']}")
 
     st.subheader("🎬 Similar Content:")
     for i in top_idx:
