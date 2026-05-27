@@ -20,18 +20,6 @@ tfidf = pickle.load(open("tfidf.pkl", "rb"))
 X = tfidf.transform(df['description'].fillna(""))
 
 # -----------------------------
-# Cluster labels (customize based on your data)
-# -----------------------------
-cluster_names = {
-    0: "Action",
-    1: "Comedy",
-    2: "Crime",
-    3: "Drama",
-    4: "Documentary",
-    5: "Romance/K-Drama"   
-}
-
-# -----------------------------
 # Streamlit UI
 # -----------------------------
 st.title("🎬 Netflix Content Clustering & Recommendation")
@@ -57,8 +45,6 @@ if user_input:
     cluster = model.predict(vec)[0]
     cluster_label = cluster_names.get(int(cluster), "Unknown")
 
-    st.success(f"Cluster: {cluster_label}")
-
     # -----------------------------
     # Similarity (recommendation)
     # -----------------------------
@@ -66,7 +52,7 @@ if user_input:
     top_idx = similarity.argsort()[0][-5:][::-1]
 
     # ALSO SHOW GENRE (more reliable)
-    st.write("Genre:", df.iloc[top_idx[0]]['listed_in'])
+    st.success("Genre:", df.iloc[top_idx[0]]['listed_in'])
 
     st.subheader("🎬 Similar Content:")
     for i in top_idx:
