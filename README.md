@@ -1,8 +1,7 @@
-Overview
-
+**Overview**
 This project builds a content-based recommendation system using Netflix movie data. It leverages NLP, clustering techniques, and Generative AI to provide personalized movie recommendations along with contextual explanations.
 
-Features
+**Features**
 1. Content-based movie recommendations
 2. NLP-based text preprocessing using NLTK
 3. Clustering using K-Means & Hierarchical methods
@@ -10,7 +9,7 @@ Features
 5. GenAI integration for dynamic movie insights
 6. Interactive UI built with Streamlit
 
-Tech Stack
+**Tech Stack**
 Programming: Python
 NLP: NLTK
 Machine Learning: Scikit-learn
@@ -19,7 +18,7 @@ Evaluation: Silhouette Score, Dendrograms
 Frontend: Streamlit
 AI Integration: Generative AI (LLMs)
 
-Methodology
+**Methodology**
 1. Data Preprocessing
    - Cleaned and processed text data using NLTK
    - Removed stopwords, tokenized, and normalized text
@@ -38,7 +37,7 @@ Methodology
 5. GenAI Integration
    - Generated contextual explanations and summaries for recommendations
 
-Demo
+**Demo**
 - Input a movie name
 - Get similar movie recommendations
 - View AI-generated explanations
