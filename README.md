@@ -1,4 +1,5 @@
 Overview
+
 This project builds a content-based recommendation system using Netflix movie data. It leverages NLP, clustering techniques, and Generative AI to provide personalized movie recommendations along with contextual explanations.
 
 Features
