@@ -60,9 +60,6 @@ if user_input:
     for i in top_idx:
         st.write(df.iloc[i]['title'])
 
-    # -----------------------------
-    # Optional: GenAI Explanation (Groq)
-    # -----------------------------
     try:
         from groq import Groq
 
